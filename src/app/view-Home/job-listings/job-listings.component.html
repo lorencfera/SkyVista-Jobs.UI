@@ -1,0 +1,14 @@
+<article *ngFor="let post of posts">
+<div class="allShi">
+  <div class="Categoryss">
+    <div routerLink="/post/{{post._id}}"><h2>{{post.nameofthejob}} - {{post.author}}</h2></div>
+    <p><b>Location:</b> {{post.loaction}}</p>
+    <p><b>Category:</b> {{post.category}}</p>
+  </div>
+  <div class="vrts">
+    <p style="float: right;
+    margin-left: 332px;
+    margin-top: 51px;">Created At : {{post.createdAt}}</p>
+  </div>
+</div>
+</article>

@@ -1,0 +1,43 @@
+nav ul {
+    float: right;
+    margin-right: 500px;
+    list-style: none;
+}
+
+.nd { 
+    margin-top: 140px;
+}
+
+.namesND{
+    list-style: none;
+}
+
+
+.theLeftSchext {
+    float: left;
+    display: flex;
+    padding: 40px;
+    /* margin-top: 2px; */
+}
+
+
+
+
+
+    .theright{
+        display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    font-size: 23px;
+    padding: 38px;
+    background-color: antiquewhite;
+    font-style: italic;
+    width: 769px;
+    height: 294px;
+    margin-top: 27px;
+    }
+
+    .topMrg { 
+        margin-top: -186px;
+        cursor: pointer;
+    }

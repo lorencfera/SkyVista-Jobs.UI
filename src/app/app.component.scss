@@ -1,0 +1,36 @@
+.imagee { 
+    width: 50px;
+}
+
+.stuctImages { 
+    text-align: center;
+    /* display: flex; */
+    margin-top: 22px;
+    justify-content: center;
+    align-items: center;
+    /* margin-right: 200px; */
+    margin-left: -685px;
+}
+
+nav { 
+    display: flex;
+    /* justify-content: center; */
+    height: 140px;
+    align-items: center;
+}
+
+ul { 
+    display: flex;
+    justify-content: center;
+    /* height: 100cm; */
+    list-style: none;
+    gap: 21px;
+}
+nav ul li .one { 
+    margin-left: 300px;
+}
+
+.structure { 
+    display: flex;
+    justify-content: center;
+}

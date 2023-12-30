@@ -1,0 +1,71 @@
+<mat-dialog-content>
+    <div class="new-post-top">
+      <textarea
+        [(ngModel)]="nameofthejob"
+        placeholder="What's on your mind, {{ userData.firstname }}?"
+        cols="30"
+        rows="1"
+      ></textarea>
+      <textarea
+        [(ngModel)]="loaction"
+        cols="30"
+        rows="1"
+      ></textarea>
+      <textarea
+        [(ngModel)]="worktypes"
+        
+        cols="30"
+        rows="1"
+      ></textarea>
+      <textarea
+        [(ngModel)]="fte"
+        
+        cols="30"
+        rows="1"
+      ></textarea>
+      <textarea
+        [(ngModel)]="shift"
+        cols="30"
+        rows="1"
+      ></textarea>
+      <textarea
+        [(ngModel)]="hours"
+        cols="30"
+        rows="1"
+      ></textarea>
+      <textarea
+        [(ngModel)]="description"
+        cols="30"
+        rows="1"
+      ></textarea>
+      <textarea
+        [(ngModel)]="requrements"
+        cols="30"
+        rows="1"
+      ></textarea>
+      <textarea
+        [(ngModel)]="position"
+        cols="30"
+        rows="1"
+      ></textarea>
+      <textarea
+        [(ngModel)]="category"
+        cols="30"
+        rows="1"
+      ></textarea>
+    </div>
+    <button
+      [disabled]="!nameofthejob && 
+      !loaction && !worktypes && !fte && 
+      !shift && !hours && !description && !requrements && 
+      !position && !category"
+      (click)="onSubmit()"
+      style="margin-top: 20px"
+      class="add-new-btn"
+      mat-raised-button
+      color="primary"
+    >
+      Post
+    </button>
+  </mat-dialog-content>
+  

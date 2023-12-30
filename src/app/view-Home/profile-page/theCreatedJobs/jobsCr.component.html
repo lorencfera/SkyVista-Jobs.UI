@@ -1,0 +1,23 @@
+<article *ngFor="let post of posts; let postIndex = index" class="post">
+  <div class="post-top">
+    <div>
+      <p routerLink="/prolife/{{ post.author._id }}" class="pointer">
+        {{ post.author.username }}
+      </p>
+    </div>
+
+    <button
+      *ngIf="regUser._id === post.author._id"
+      mat-button
+      
+    >
+      <i class="fa-solid fa-ellipsis-vertical three-dots"></i>
+    </button>
+    
+  </div>
+  <div class="post-middle" routerLink="/post/prolife/{{ post.author }}">
+    <h1>{{ post.nameofthejob }} - {{post.worktypes}}</h1><br>
+    <p>Location:  {{post.loaction}}</p>
+  </div>
+
+</article>

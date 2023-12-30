@@ -1,0 +1,37 @@
+<div class="all">
+  <div class="below">
+    <h3>{{post.nameofthejob}} (Job ID: {{post._id}})</h3>
+  </div><br>
+
+  <p>SkyVistaWellness Center: </p>{{post.author.lastname}}
+
+  <div class="vrs">
+    <ul>
+    <li><b>Location:</b>{{post.loaction}}</li> <br>
+    <li><b>Work Type:</b>{{post.worktypes}}</li> <br>
+    <li><b>Fte:</b> {{post.fte}}</li> <br>
+    <li><b>Shift:</b> {{post.shift}}</li> <br>
+    <li><b>Hours:</b> {{post.hours}}</li> <br>
+    </ul>  <br>
+  </div><br>
+
+  <div class="summerray">
+    <h2>SUMMARY OF POSITION:</h2>
+    <p>{{post.description}}</p>
+  </div><br>
+
+  <div class="minnd">
+    <h2>MINIMUM QUALIFICATION(S):</h2>
+    <p>{{post.requrements}}</p>
+  </div>
+
+  <div class="anotherDimension">
+    <h1>JOB Summary</h1>
+    <div class="d">
+      <ul>
+    <li><b>Position: </b>{{post.position}}</li> <br>
+    <li><b>Country:</b> {{post.category}}</li> <br>
+      </ul>
+    </div>
+  </div>
+</div>
