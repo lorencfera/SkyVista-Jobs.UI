@@ -22,6 +22,7 @@ import { AddnewwjobComponent } from './view-Home/addnewwjob/addnewwjob.component
 import { AddPositionAndEduationUpdated } from './view-Home/forUpdates/addpostioneduaction.update';
 import { addEduacation } from './view-Home/forUpdates/addEducation';
 import { OnlyJobPostIdComponent } from './view-Home/only-job-post-id/only-job-post-id.component';
+import { SaveJobComponent } from './view-Home/save-job/save-job.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +37,7 @@ import { OnlyJobPostIdComponent } from './view-Home/only-job-post-id/only-job-po
     AddnewwjobComponent,
     AddPositionAndEduationUpdated,
     OnlyJobPostIdComponent,
+    SaveJobComponent,
   ],
   imports: [
     BrowserModule,

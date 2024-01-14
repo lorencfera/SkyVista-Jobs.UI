@@ -12,7 +12,7 @@ import { environment } from "src/enviroment/enviroment";
       private localStorageS: LocalStorageService
     ) {}
 
-    getFeed() {
+    getJobsList() {
         const fullUrl = `${environment.apiBaseUrl}/post/job/get`;
         const jwt: any = this.localStorageS.getWithExpiry('jwt');
         const headers = new HttpHeaders().set('Authorization', `Bearer ${jwt}`);

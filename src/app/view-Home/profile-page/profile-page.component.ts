@@ -20,6 +20,7 @@ export class ProfilePageComponent implements OnInit{
   currentRoute: any = '';
   regUser: any = {}
   tab: string = 'addpostiion'
+  userId: string = '';
 
   ngSwitchAddPosition() { 
     this.tab = 'addpostiion'
@@ -30,7 +31,6 @@ export class ProfilePageComponent implements OnInit{
   constructor(
     private userNgRxS: UserNgrxService,
     private router: Router,
-    private loginoutEmitter: LoginLogoutEmitterService,
     private activatedRoute: ActivatedRoute,
     private userProxyS: UserProxy,
     private dialog: MatDialog

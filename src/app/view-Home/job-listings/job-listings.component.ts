@@ -4,6 +4,7 @@ import { UserNgrxService } from 'src/app/service/state-/ngrx-regualry';
 import { AddnewwjobComponent } from '../addnewwjob/addnewwjob.component';
 import { PostProxyService } from 'src/app/service/proxy/post.proxy';
 import { PostAddEmitterService } from 'src/app/service/emitters/post.emit';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-job-listings',
@@ -11,22 +12,27 @@ import { PostAddEmitterService } from 'src/app/service/emitters/post.emit';
   styleUrls: ['./job-listings.component.scss']
 })
 export class JobListingsComponent implements OnInit{
-  posts!: any[];
   userData: any = {};
+  post!: any[]
+  jobSearchAttempted: boolean = false;
+  showRouterOutlet: boolean | undefined;
+  searchValue: any
+  
 
   constructor(
     private userNgRxS: UserNgrxService,
     private dialog: MatDialog,
     private postProxyS: PostProxyService,
-    private postAddEmitter: PostAddEmitterService
+    private postAddEmitter: PostAddEmitterService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.postAddEmitter.postAddEmitter.subscribe((response:any) => {
-      this.getFeed();
+      this.getjobs();
     });
-    this.getFeed();
     this.getRegisteredUser();
+    this.getjobs();
   }
  
 
@@ -34,16 +40,27 @@ export class JobListingsComponent implements OnInit{
     this.userNgRxS.getUserData().subscribe((response: any) => {
       this.userData = response;
     });
-
-   
   } 
   onAddNewBtnClick() {
       this.dialog.open(AddnewwjobComponent);
     }
 
-    getFeed() {
-      this.postProxyS.getFeed().subscribe((posts: any) => {
-        this.posts = posts;
+  getjobs() {
+      this.postProxyS.getJobsList().subscribe((response: any) => {
+        this.post = response;
       });
+    }
+
+    navigateToPost() {
+      if (this.isValidPostId()) {
+        this.router.navigate(['/prolife', this.searchValue]);
+      } else {
+        this.jobSearchAttempted = true;
+      }
+    }
+  
+    private isValidPostId(): boolean {
+     //looking
+      return this.searchValue.trim() !== '';
     }
  }

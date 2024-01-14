@@ -9,6 +9,7 @@ import { ProfilePageComponent } from './view-Home/profile-page/profile-page.comp
 import { CommonModule } from '@angular/common';
 import { OnlyJobPostIdComponent } from './view-Home/only-job-post-id/only-job-post-id.component';
 import { PostPgComponent } from './view-Home/profile-page/theCreatedJobs/jobscr.component';
+import { SaveJobComponent } from './view-Home/save-job/save-job.component';
 const routes: Routes = [
   {
     path:'',
@@ -31,13 +32,19 @@ const routes: Routes = [
     component: OnlyJobPostIdComponent,
   }, 
   {
+    path: 'saveJobs/:userId',
+    canActivate: [AuthServiceGuard],
+    component: SaveJobComponent,
+  },
+  {
     path: 'prolife/:userId',
     canActivate: [AuthServiceGuard],
     component: ProfilePageComponent,
     children: [
       { path: 'post', component: PostPgComponent },
     ]
-  }
+  },
+  
 ];
 
 @NgModule({

@@ -29,5 +29,5 @@ export class UserNgrxService {
 
   getUserData() {
     return this.store.pipe(select('user' as any));
-  }
+  } 
 }

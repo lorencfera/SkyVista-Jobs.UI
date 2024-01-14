@@ -11,7 +11,7 @@
         <ul>
           <div><a routerLink="">Job Listing</a></div>
           <div><a routerLink="/prolife/{{ userData._id }}">My Profile</a></div>
-          <li >My Saved Jobs</li>
+          <div><a routerLink="/saveJobs/{{userData._id}}">My Saved Jobs</a></div>
           <li>My Applications</li>
           <li>My Job Alerts</li>
           <li class="one"><b>{{userData.firstname}} {{userData.lastname}}</b></li>
@@ -24,4 +24,5 @@
     </div>
   </div>
   </header>
+ 
 <router-outlet></router-outlet>

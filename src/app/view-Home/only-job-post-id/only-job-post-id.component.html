@@ -1,37 +1,41 @@
 <div class="all">
   <div class="below">
-    <h3>{{post.nameofthejob}} (Job ID: {{post._id}})</h3>
+    <h3>{{posts.nameofthejob}} (<b>Job ID:</b> {{posts._id}})</h3>
   </div><br>
 
-  <p>SkyVistaWellness Center: </p>{{post.author.lastname}}
+  <p>SkyVistaWellness Center: <b routerLink="/prolife/{{posts.author._id}}">{{posts.author.firstname}}</b></p>
 
   <div class="vrs">
     <ul>
-    <li><b>Location:</b>{{post.loaction}}</li> <br>
-    <li><b>Work Type:</b>{{post.worktypes}}</li> <br>
-    <li><b>Fte:</b> {{post.fte}}</li> <br>
-    <li><b>Shift:</b> {{post.shift}}</li> <br>
-    <li><b>Hours:</b> {{post.hours}}</li> <br>
-    </ul>  <br>
+      <li><b>Location:</b>{{posts.loaction}}</li> <br>
+      <li><b>Work Type:</b>{{posts.worktypes}}</li> <br>
+      <li><b>Fte:</b> {{posts.fte}}</li> <br>
+      <li><b>Shift:</b> {{posts.shift}}</li> <br>
+      <li><b>Hours:</b> {{posts.hours}}</li> <br>
+    </ul> <br>
   </div><br>
 
   <div class="summerray">
     <h2>SUMMARY OF POSITION:</h2>
-    <p>{{post.description}}</p>
+    <p>{{posts.description}}</p>
   </div><br>
 
   <div class="minnd">
     <h2>MINIMUM QUALIFICATION(S):</h2>
-    <p>{{post.requrements}}</p>
-  </div>
+    <p>{{posts.requrements}}</p>
+  </div> <br>
 
   <div class="anotherDimension">
     <h1>JOB Summary</h1>
     <div class="d">
       <ul>
-    <li><b>Position: </b>{{post.position}}</li> <br>
-    <li><b>Country:</b> {{post.category}}</li> <br>
+        <li><b>Position: </b>{{posts.position}}</li> <br>
+        <li><b>Country:</b> {{posts.category}}</li> <br>
       </ul>
     </div>
   </div>
+</div>
+
+<div>
+  <button (click)="saveJob(posts._id)">save</button>
 </div>

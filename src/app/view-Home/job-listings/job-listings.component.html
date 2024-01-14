@@ -1,7 +1,34 @@
-<article *ngFor="let post of posts">
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <button
+      routerLinkActive="post"
+      [routerLink]="['/prolife', searchValue]"
+      class="btn btn-outline-secondary"
+      type="button"
+    >
+      Search
+    </button>
+  </div>
+  <input
+  (keyup.enter)="navigateToPost()"
+    [(ngModel)]="searchValue"
+    type="text"
+    class="form-control search-input"
+    placeholder=""
+    aria-label=""
+    aria-describedby="basic-addon1"
+  />
+</div>
+
+<div *ngIf="jobSearchAttempted">
+  <p>Job not found or an error occurred.</p>
+</div>
+
+<article *ngFor="let post of post">
 <div class="allShi">
   <div class="Categoryss">
-    <div routerLink="/post/{{post._id}}"><h2>{{post.nameofthejob}} - {{post.author}}</h2></div>
+    <p><b>CreatedBy</b> -- {{post.author.firstname}}</p>
+    <div routerLink="/post/{{post._id}}"><h2>{{post.nameofthejob}} - {{post.shift}} SHIFT - {{post.hours}} MAIN</h2></div>
     <p><b>Location:</b> {{post.loaction}}</p>
     <p><b>Category:</b> {{post.category}}</p>
   </div>
@@ -12,3 +39,9 @@
   </div>
 </div>
 </article>
+
+
+<div>
+  <button (click)="onAddNewBtnClick()">add job</button>
+</div>
+

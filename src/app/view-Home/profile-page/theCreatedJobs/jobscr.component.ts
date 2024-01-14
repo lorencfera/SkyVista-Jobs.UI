@@ -55,8 +55,4 @@ import { UserProxy } from "src/app/service/proxy/aonntherForproxyOkayUSER.proxy"
       this.posts = posts;
     });
   }
-
-  onAddNewBtnClick() {
-    this.dialog.open(AddnewwjobComponent);
-  }
 }

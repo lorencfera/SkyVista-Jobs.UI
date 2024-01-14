@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { UserProxy } from 'src/app/service/proxy/aonntherForproxyOkayUSER.proxy';
 import { PostProxyService } from 'src/app/service/proxy/post.proxy';
 import { UserNgrxService } from 'src/app/service/state-/ngrx-regualry';
+import { SaveJobComponent } from '../save-job/save-job.component';
 
 @Component({
   selector: 'app-only-job-post-id',
@@ -12,14 +13,14 @@ import { UserNgrxService } from 'src/app/service/state-/ngrx-regualry';
 })
 export class OnlyJobPostIdComponent implements OnInit{
   userData: any = {};
-  post: any = {};
+  posts: any = {};
 
   constructor(
-    private dialog: MatDialog,
     private userNgRxS: UserNgrxService,
     private postProxyS: PostProxyService,
     private activatedRoute: ActivatedRoute,
-    private userProxyS: UserProxy,
+    private UserProxy: UserProxy,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -30,17 +31,36 @@ export class OnlyJobPostIdComponent implements OnInit{
   }
 
   getRegisteredUser() {
-    this.userNgRxS.getUserData().subscribe((response) => {
+    this.userNgRxS.getUserData().subscribe((response: any) => {
       this.userData = response;
     });
   }
 
   getPost(postId: string) {
-    this.postProxyS.getPost(postId).subscribe((response) => {
-      this.post = response;
+    this.postProxyS.getPost(postId).subscribe((response: any) => {
+      this.posts = response;
+    },
+    (error) => {
+      console.error('Error fetching post:', error);
     });
   }
 
-
+  saveJob(jobId: string): void {
+    // Assume you have a user ID, replace 'userId' with the actual user ID
+    // this.userNgRxS.getUserData().subscribe(
+    //   (userData) => {
+    //     const userId = userData._id; // Adjust this based on your user data structure
+    //   })
+    const userId = this.userData._id;
+      this.UserProxy.saveJob(jobId, userId).subscribe(
+        (data) => {
+          console.log('Job saved successfully:', data);
+        },
+        (error) => {
+          console.error('Error saving job:', error);
+        }
+      );
+  }
+  
 
 }

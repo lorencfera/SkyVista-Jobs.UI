@@ -1,40 +1,44 @@
-<!-- <h1 class="heading">{{ userData.username }}</h1>
-      <div class="location">
-        <i
-          [ngStyle]="{
-            'margin-right': '10px'
-          }"
-          class="fa-solid fa-at"
-        ></i>
-        <p>{{ userData.email }}</p>
-      </div> -->
 
 <div class="All">
   <div class="Second">
     <div class="theTExt">
       <h2>My Profile</h2>
     </div>
-    <div class="sddsa">
-      <article class="tabs-box">
-        <nav mat-tab-nav-bar [tabPanel]="tabPanel">
-          <a
-            routerLink="post"
-            [active]="currentRoute.includes('post')"
-            mat-tab-link
-          >
-            Job that you posted
-          </a>
-        </nav>
-      </article>
-      <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
-      
-      <section>
-        <router-outlet></router-outlet>
-      </section>
-      <hr><br>
-    </div>
     <p>It's important to keep your profile information updated</p>
-  </div>
+
+    <article class="tabs-box">
+      <nav mat-tab-nav-bar [tabPanel]="tabPanel">
+        <a
+        *ngIf="userData._id !== regUser._id"
+          routerLink="post"
+          [active]="currentRoute.includes('post')"
+          mat-tab-link
+        >
+          Job that he's posted
+        </a>
+
+        <a
+        *ngIf="userData._id === regUser._id"
+        routerLink="post"
+        [active]="currentRoute.includes('post')"
+        mat-tab-link
+      >
+        Job that you posted posted
+      </a>
+      </nav>
+    </article>
+    <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+    
+    <section>
+      <router-outlet></router-outlet>
+    </section>
+<!-- 
+    <div><a [routerLink]="['saveJobs']">My Saved Jobs</a></div>
+    
+    <section>
+      <router-outlet></router-outlet>
+    </section> -->
+
   <div class="st">
   <h2>Contact Information</h2>
   <div class="forEditInHr" *ngIf="userData._id === regUser._id">
@@ -88,6 +92,7 @@
 <div class="rdAndFinally">
   <h2>Please review your profile questions each time you complete an application and updated as needed</h2>
   <hr>
+  <h1  *ngIf="userData._id !== regUser._id">Talent Profile</h1> <br>
   <ul style="list-style: none;
   font-size: 15px;">
     <li><b>Education Degree:</b> {{userData.educationdegree}}</li>
@@ -112,9 +117,9 @@
   </ul>
 </div><br><br>
 
-<h1>Talent Profile</h1>
+<h1 *ngIf="userData._id === regUser._id">Talent Profile</h1>
 <hr>
-<div class="rdAndReallyFinally" [ngSwitch]="tab" *ngIf="userData._id === regUser._id">
+<div class="rdAndReallyFinally" [ngSwitch]="tab"  *ngIf="userData._id === regUser._id">
   <div class="allScetcxh">
     <div class="theLeftSchext">
       <ul style="list-style: none;
