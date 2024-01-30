@@ -1,47 +1,112 @@
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <button
-      routerLinkActive="post"
-      [routerLink]="['/prolife', searchValue]"
-      class="btn btn-outline-secondary"
-      type="button"
-    >
-      Search
-    </button>
+
+<!-- Please now I welcome you! -->
+
+<div class="container">
+  <div class="center-left-card">
+    <div class="card text-white border-0" *ngFor="let post of post">
+
+      <div class="card-img-overlay --card-img-overlay-purple d-flex flex-column justify-content-between align-items-start p-5 four"></div>
+    
+      <div class="card-img-overlay card-overlay-black hover-light d-flex flex-column justify-content-between align-items-start">
+        <div class="d-flex justify-content-between w-100 mb-3">
+          <div><span class="badge badge-warning3 mr-2"> SkyVistaWellnes</span><span class="badge badge-info"> Center</span></div>
+    
+          <a href="javascript://">
+            <div class="myicoo" (click)="saveJob(post._id)"></div>
+          </a>
+        </div>
+        <div class="mb-4">
+    
+          <div class="h3"  routerLink="/post/{{post._id}}"><a class="text-white text-decoration-none" href="javascript://">{{post.nameofthejob}}<br />{{post.shift}} SHIFT - {{post.hours}} MAIN</a></div>
+        </div>
+        <div class="text-light">{{ post.createdAt | date:'d MMMM y' }}</div>
+      </div>
+    </div>
+    <br>
+    
   </div>
-  <input
-  (keyup.enter)="navigateToPost()"
-    [(ngModel)]="searchValue"
-    type="text"
-    class="form-control search-input"
-    placeholder=""
-    aria-label=""
-    aria-describedby="basic-addon1"
-  />
-</div>
 
-<div *ngIf="jobSearchAttempted">
-  <p>Job not found or an error occurred.</p>
-</div>
+  <div class="right-section">
+    <div class="cards">
+    <div class="input-group mb-3">
+      
+<div class="ddddddd">
+  <form (ngSubmit)="navigateToPost()" [formGroup]="searchForm" class="search-form">
+  <div class="input-group mb-3">
+   <p>Job title:</p>
+   <input
+   (keyup.enter)="navigateToPost()"
+   formControlName="nameofthejob"
+     type="text"
+     class="form-control search-input"
+     placeholder=""
+     aria-label=""
+     aria-describedby="basic-addon1"
+   />
+   <p>Location:</p>
+   <input
+   (keyup.enter)="navigateToPost()"
+     type="text"
+     class="form-control search-input"
+     placeholder=""
+     aria-label=""
+     aria-describedby="basic-addon1"
+   />
+   <p>Work Type:</p>
+   <input
+   (keyup.enter)="navigateToPost()"
+     type="text"
+     class="form-control search-input"
+     placeholder=""
+     aria-label=""
+     aria-describedby="basic-addon1"
+   />
+   <p>Category:</p>
+   <input
+   (keyup.enter)="navigateToPost()"
+     type="text"
+     class="form-control search-input"
+     placeholder=""
+     aria-label=""
+     aria-describedby="basic-addon1"
+   />
+   <p>Date Posted:</p>
+   <input
+   (keyup.enter)="navigateToPost()"
+     type="date"
+     class="form-control search-input"
+     placeholder=""
+     aria-label=""
+     aria-describedby="basic-addon1"
+   />
+   <p>Job Id:</p>
+   <input
+   (keyup.enter)="navigateToPost()"
+   formControlName="id"
+     type="text"
+     class="form-control search-input"
+     placeholder=""
+     aria-label=""
+     aria-describedby="basic-addon1"
+   />
+ </div>
+ <br>
+ 
+    <div *ngIf="jobSearchAttempted">
+      <p>Job not found or an error occurred.</p>
+    </div>
 
-<article *ngFor="let post of post">
-<div class="allShi">
-  <div class="Categoryss">
-    <p><b>CreatedBy</b> -- {{post.author.firstname}}</p>
-    <div routerLink="/post/{{post._id}}"><h2>{{post.nameofthejob}} - {{post.shift}} SHIFT - {{post.hours}} MAIN</h2></div>
-    <p><b>Location:</b> {{post.loaction}}</p>
-    <p><b>Category:</b> {{post.category}}</p>
+    <div class="allusers">
+      <div>
+        <button type="submit" [disabled]="!searchForm.valid" class="button-15" role="button">Search</button>
+      </div>
+      </div>
+      </form>
+      <br>
+      <div>
+        <button class="button-15" role="button" (click)="onAddNewBtnClick()">Create Job Alert </button>
+      </div>
+    </div>
   </div>
-  <div class="vrts">
-    <p style="float: right;
-    margin-left: 332px;
-    margin-top: 51px;">Created At : {{post.createdAt}}</p>
-  </div>
 </div>
-</article>
-
-
-<div>
-  <button (click)="onAddNewBtnClick()">add job</button>
 </div>
-

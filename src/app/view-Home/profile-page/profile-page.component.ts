@@ -9,6 +9,7 @@ import { UpdateUserComponent } from '../update-user/update-user.component';
 import { UpdateUserComponentnrtwo } from '../forUpdates/updatenrtwo';
 import { AddPositionAndEduationUpdated } from '../forUpdates/addpostioneduaction.update';
 import { addEduacation } from '../forUpdates/addEducation';
+import { DeletePostModComponent } from '../deletethejob/deletethejob';
 
 @Component({
   selector: 'app-profile-page',
@@ -47,6 +48,15 @@ export class ProfilePageComponent implements OnInit{
       }
     });
   }
+  onPostDeleteBtnClick(postId: string) {
+    this.dialog.open(DeletePostModComponent, {
+      data: {
+        postId: postId,
+      },
+    });
+  }
+
+  
   getUserProfile(userId: string) {
     this.userProxyS.getUserById(userId).subscribe((response: any) => {
       const { password, verificationToken, ...user } = response;

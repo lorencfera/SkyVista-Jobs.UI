@@ -41,6 +41,12 @@ getUserById(userId: string) {
     return this.proxy.get(fullUrl, options);
 }
 
-
+getUser() {
+  const fullUrl = `${environment.apiBaseUrl}/user/userat`;
+  const jwt: any = this.localStorageSs.getWithExpiry('jwt');
+  const headers = new HttpHeaders().set('Authorization', `Bearer ${jwt}`);
+  const options = { headers: headers }
+  return this.proxy.get(fullUrl, options );
+}
   
 }

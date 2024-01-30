@@ -51,7 +51,7 @@
   <div class="names">
     <nav>
       <div class="NameOfTheUser">
-        <p>{{userData.firstname}} {{userData.lastname}}</p>
+        <p>{{userData.firstname}} {{userData.lastname}}&nbsp;&nbsp; <span class="verified-avatar-icon">✓</span></p>
       </div>
       <ul style="margin-top: -31px;">
         <li>Contact Method: <b>{{userData.conntactmethod}}</b></li>
@@ -127,16 +127,16 @@
       gap: 35px;
       flex-direction: column;
       font-size: 15px;">
-        <li (click)="ngSwitchAddPosition()">Add Position</li>
-        <li (click)="ngSwitchAddEducation()">Add Education</li>
+        <li (click)="ngSwitchAddPosition()" style="cursor: pointer;">Add Position</li>
+        <li (click)="ngSwitchAddEducation()" style="cursor: pointer;">Add Education</li>
       </ul>
     </div>
     <div class="theright" >
       <div #addpostiion *ngSwitchCase="'addpostiion'" class="topMrg">
-        <button (click)="openUpdatePositionandEduactionTwoFormBtnClick()" >Add Position </button>
+        <button class="button-15" role="button" (click)="openUpdatePositionandEduactionTwoFormBtnClick()" >Add Position </button>
       </div>
       <div #addEduacation *ngSwitchCase="'addEduacation'" class="topMrg">
-         <button (click)="AddEduacationFormBtnClickk()" >Add Eduacation</button>
+         <button class="button-15" role="button" (click)="AddEduacationFormBtnClickk()" >Add Eduacation</button>
       </div>
     </div>
   </div>

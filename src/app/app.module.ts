@@ -23,11 +23,18 @@ import { AddPositionAndEduationUpdated } from './view-Home/forUpdates/addpostion
 import { addEduacation } from './view-Home/forUpdates/addEducation';
 import { OnlyJobPostIdComponent } from './view-Home/only-job-post-id/only-job-post-id.component';
 import { SaveJobComponent } from './view-Home/save-job/save-job.component';
+import { DeletePostModComponent } from './view-Home/deletethejob/deletethejob';
+import { MatMenuModule} from '@angular/material/menu';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { JobAlertsComponent } from './view-Home/job-alerts/job-alerts.component';
+import { PostPgComponents } from './view-Home/job-alerts/theCreatedJobs/jobscr.component';
 @NgModule({
   declarations: [
     AppComponent,
     PostPgComponent,
     addEduacation,
+    PostPgComponents,
+    DeletePostModComponent,
     JobListingsComponent,
     UpdateUserComponentnrtwo,
     RegisterComponent,
@@ -38,11 +45,14 @@ import { SaveJobComponent } from './view-Home/save-job/save-job.component';
     AddPositionAndEduationUpdated,
     OnlyJobPostIdComponent,
     SaveJobComponent,
+    JobAlertsComponent,
   ],
   imports: [
     BrowserModule,
+    MatMenuModule,
     FormsModule,
     MatTabsModule,
+    MatSidenavModule,
     MatDialogModule,
     HttpClientModule,
     ReactiveFormsModule,

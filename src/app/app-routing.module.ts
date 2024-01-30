@@ -10,6 +10,8 @@ import { CommonModule } from '@angular/common';
 import { OnlyJobPostIdComponent } from './view-Home/only-job-post-id/only-job-post-id.component';
 import { PostPgComponent } from './view-Home/profile-page/theCreatedJobs/jobscr.component';
 import { SaveJobComponent } from './view-Home/save-job/save-job.component';
+import { PostPgComponents } from './view-Home/job-alerts/theCreatedJobs/jobscr.component';
+import { JobAlertsComponent } from './view-Home/job-alerts/job-alerts.component';
 const routes: Routes = [
   {
     path:'',
@@ -35,6 +37,14 @@ const routes: Routes = [
     path: 'saveJobs/:userId',
     canActivate: [AuthServiceGuard],
     component: SaveJobComponent,
+  },
+  {
+    path: 'JobAlerts/:userId',
+    canActivate: [AuthServiceGuard],
+    component: JobAlertsComponent,
+    children: [
+      { path: 'post', component: PostPgComponents },
+    ]
   },
   {
     path: 'prolife/:userId',

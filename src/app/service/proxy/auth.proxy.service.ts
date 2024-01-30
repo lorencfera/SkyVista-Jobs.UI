@@ -38,6 +38,8 @@ export class AuthProxyService {
     return this.proxy.get(fullUrl, { headers: headers });
   }
 
+  
+
   updateUser(userData: any) {
     const fullUrl = `${environment.apiBaseUrl}/auth/update`;
     const jwt: any = this.localStorageSs.getWithExpiry('jwt');

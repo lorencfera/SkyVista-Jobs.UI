@@ -46,8 +46,8 @@
     
 Dear valued user, <br>
 
-To effortlessly locate your saved job, simply copy the job ID and paste it into the search <br> 
-bar. This streamlined process ensures that you swiftly access the specific job you <br>
+To effortlessly locate your saved jobclick on it.<br> 
+This streamlined process ensures that you swiftly access the specific job you <br>
 desire, sparing you the effort of tirelessly searching through listings. <br>
 
 Best regards, <br>
@@ -57,10 +57,9 @@ SkyVista Wellness Center
 <div>
   <ul *ngFor="let j of Jobs">
     <span [routerLink]="['/post', j]">
-      <li #s>
+      <li #s class="button-15" role="button">
         {{j}}
     </li>
   </span>
 </ul>
 </div>
-

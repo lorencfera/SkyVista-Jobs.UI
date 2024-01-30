@@ -1,4 +1,4 @@
-<mat-dialog-content>
+<!-- <mat-dialog-content>
     <div class="new-post-top">
       <textarea
         [(ngModel)]="nameofthejob"
@@ -68,9 +68,107 @@
       !position && !category"
       (click)="onSubmit()"
       style="margin-top: 20px"
-      class="add-new-btn"
-      mat-raised-button
-      color="primary"
+      class="button-15" role="button"
+    >
+      Post
+    </button>
+  </mat-dialog-content>
+   -->
+
+   <mat-dialog-content class="custom-dialog-content">
+    <div class="new-post-top">
+      <div class="form-group">
+        <label for="nameofthejob">Job Name</label>
+        <textarea
+          id="nameofthejob"
+          [(ngModel)]="nameofthejob"
+          placeholder="Enter job name"
+        ></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="location">Location</label>
+        <textarea
+          id="location"
+          [(ngModel)]="loaction"
+          placeholder="Enter location"
+        ></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="worktypes">Work Types</label>
+        <textarea
+          id="worktypes"
+          [(ngModel)]="worktypes"
+          placeholder="Enter work types"
+        ></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="fte">FTE</label>
+        <textarea id="fte" [(ngModel)]="fte" placeholder="Enter FTE"></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="shift">Shift</label>
+        <textarea
+          id="shift"
+          [(ngModel)]="shift"
+          placeholder="Enter shift"
+        ></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="hours">Hours</label>
+        <textarea
+          id="hours"
+          [(ngModel)]="hours"
+          placeholder="Enter hours"
+        ></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea
+          id="description"
+          [(ngModel)]="description"
+          placeholder="Enter job description"
+        ></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="requirements">Requirements</label>
+        <textarea
+          id="requirements"
+          [(ngModel)]="requrements"
+          placeholder="Enter job requirements"
+        ></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="position">Position</label>
+        <textarea
+          id="position"
+          [(ngModel)]="position"
+          placeholder="Enter position"
+        ></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="category">Category</label>
+        <textarea
+          id="category"
+          [(ngModel)]="category"
+          placeholder="Enter category"
+        ></textarea>
+      </div>
+    </div>
+  
+    <button
+      [disabled]="!nameofthejob || !loaction || !worktypes || !fte || !shift || !hours || !description || !requrements || !position || !category"
+      (click)="onSubmit()"
+      class="button-15"
+      role="button"
     >
       Post
     </button>

@@ -5,6 +5,7 @@ import { UserProxy } from 'src/app/service/proxy/aonntherForproxyOkayUSER.proxy'
 import { PostProxyService } from 'src/app/service/proxy/post.proxy';
 import { UserNgrxService } from 'src/app/service/state-/ngrx-regualry';
 import { SaveJobComponent } from '../save-job/save-job.component';
+import { DeletePostModComponent } from '../deletethejob/deletethejob';
 
 @Component({
   selector: 'app-only-job-post-id',
@@ -14,7 +15,7 @@ import { SaveJobComponent } from '../save-job/save-job.component';
 export class OnlyJobPostIdComponent implements OnInit{
   userData: any = {};
   posts: any = {};
-
+  users: any = {}
   constructor(
     private userNgRxS: UserNgrxService,
     private postProxyS: PostProxyService,
@@ -62,5 +63,23 @@ export class OnlyJobPostIdComponent implements OnInit{
       );
   }
   
+  onPostDeleteBtnClick(postId: string) {
+    this.dialog.open(DeletePostModComponent, {
+      data: {
+        postId: postId,
+      },
+    });
+  }
 
+  getUsers() {
+    this.UserProxy.getUser().subscribe(
+      (response) => {
+        this.users = response;
+      },
+      (error: any) => {
+        console.error('Error fetching users:', error);
+      }
+    );
+  }
+  
 }

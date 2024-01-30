@@ -13,7 +13,7 @@ import { DeletePostModComponent } from "../../deletethejob/deletethejob";
     templateUrl: './jobscr.component.html',
     styleUrls: ['./job.component.scss'],
   })
-  export class PostPgComponent implements OnInit {
+  export class PostPgComponents implements OnInit {
     userData: any = {};
   regUser: any = {};
   posts!: any[];

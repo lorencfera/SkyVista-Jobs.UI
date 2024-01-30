@@ -36,6 +36,15 @@
   </div>
 </div>
 
-<div>
-  <button (click)="saveJob(posts._id)">save</button>
+<div class="button-container">
+<button class="button-15" mat-button [matMenuTriggerFor]="postMenu" role="button" *ngIf="userData._id === posts.author._id"
+mat-button>Delete your Post</button>
+<mat-menu #postMenu="matMenu">
+  <button  (click)="onPostDeleteBtnClick(posts._id)" mat-menu-item>
+    Delete
+  </button>
+</mat-menu>
+</div>
+<div class="button-container">
+  <button class="button-15" role="button" (click)="saveJob(posts._id)">save</button>
 </div>

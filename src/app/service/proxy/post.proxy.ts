@@ -39,5 +39,13 @@ import { environment } from "src/enviroment/enviroment";
         const headers = new HttpHeaders().set('Authorization', `Bearer ${jwt}`);
         return this.proxy.get(fullUrl, { headers: headers });
       }
+
+
+      deletePost(postId: string) {
+        const fullUrl = `${environment.apiBaseUrl}/post/${postId}`;
+        const jwt: any = this.localStorageS.getWithExpiry('jwt');
+        const headers = new HttpHeaders().set('Authorization', `Bearer ${jwt}`);
+        return this.proxy.delete(fullUrl, { headers: headers });
+      }
     
   }

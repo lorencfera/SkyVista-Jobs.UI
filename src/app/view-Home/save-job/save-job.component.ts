@@ -12,7 +12,7 @@ import { UserNgrxService } from 'src/app/service/state-/ngrx-regualry';
 export class SaveJobComponent implements OnInit{
   regUser: any = {};
   userId!: string;
-  Jobs: any;
+  Jobs: any ={}
   userData: any = {}
   posts!: any
   jobSearchAttempted: boolean = false;
