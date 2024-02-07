@@ -12,7 +12,6 @@
           <div><a routerLink="">Job Listing</a></div>
           <div><a routerLink="/prolife/{{ userData._id }}">My Profile</a></div>
           <div><a routerLink="/saveJobs/{{userData._id}}">My Saved Jobs</a></div>
-          <li>My Applications</li>
           <div><a routerLink="/JobAlerts/{{userData._id}}/post">My Job Alerts</a></div>
           <li class="one"><b>{{userData.firstname}} {{userData.lastname}}</b>&nbsp;&nbsp;<span *ngIf="afterLoginDisplay" class="verified-avatar-icon">✓</span></li>
           <div style="margin-right: 10px;">

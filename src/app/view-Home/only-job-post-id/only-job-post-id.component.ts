@@ -6,6 +6,7 @@ import { PostProxyService } from 'src/app/service/proxy/post.proxy';
 import { UserNgrxService } from 'src/app/service/state-/ngrx-regualry';
 import { SaveJobComponent } from '../save-job/save-job.component';
 import { DeletePostModComponent } from '../deletethejob/deletethejob';
+import { ApplicateForJob } from '../formsuibmitApplication/applicatejob';
 
 @Component({
   selector: 'app-only-job-post-id',
@@ -81,5 +82,16 @@ export class OnlyJobPostIdComponent implements OnInit{
       }
     );
   }
+
+  
+  applicateforJOb() {
+    this.dialog.open(ApplicateForJob,{
+    height: "calc(100% - 30px)",
+    width: "calc(100% - 30px)",
+    maxWidth: "100%",
+    maxHeight: "100%"
+  })
+}
+
   
 }

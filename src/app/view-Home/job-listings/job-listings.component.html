@@ -31,63 +31,56 @@
     <div class="input-group mb-3">
       
 <div class="ddddddd">
-  <form (ngSubmit)="navigateToPost()" [formGroup]="searchForm" class="search-form">
   <div class="input-group mb-3">
-   <p>Job title:</p>
+   <p>Job Name && Person Name:</p>
    <input
-   (keyup.enter)="navigateToPost()"
-   formControlName="nameofthejob"
-     type="text"
-     class="form-control search-input"
-     placeholder=""
-     aria-label=""
-     aria-describedby="basic-addon1"
+   (keyup)="searchValue"
+   [(ngModel)]="searchValue"
+   type="text"
+   class="form-control search-input"
+   placeholder=""
+   aria-label=""
+   aria-describedby="basic-addon1"
    />
    <p>Location:</p>
    <input
-   (keyup.enter)="navigateToPost()"
-     type="text"
-     class="form-control search-input"
-     placeholder=""
-     aria-label=""
-     aria-describedby="basic-addon1"
+   type="text"
+   class="form-control search-input"
+   placeholder=""
+   aria-label=""
+   aria-describedby="basic-addon1"
    />
    <p>Work Type:</p>
    <input
-   (keyup.enter)="navigateToPost()"
-     type="text"
-     class="form-control search-input"
-     placeholder=""
-     aria-label=""
-     aria-describedby="basic-addon1"
+   type="text"
+   class="form-control search-input"
+   placeholder=""
+   aria-label=""
+   aria-describedby="basic-addon1"
    />
    <p>Category:</p>
    <input
-   (keyup.enter)="navigateToPost()"
-     type="text"
-     class="form-control search-input"
-     placeholder=""
-     aria-label=""
-     aria-describedby="basic-addon1"
+   type="text"
+   class="form-control search-input"
+   placeholder=""
+   aria-label=""
+   aria-describedby="basic-addon1"
    />
    <p>Date Posted:</p>
    <input
-   (keyup.enter)="navigateToPost()"
-     type="date"
-     class="form-control search-input"
-     placeholder=""
-     aria-label=""
-     aria-describedby="basic-addon1"
+   type="text"
+   class="form-control search-input"
+   placeholder=""
+   aria-label=""
+   aria-describedby="basic-addon1"
    />
    <p>Job Id:</p>
    <input
-   (keyup.enter)="navigateToPost()"
-   formControlName="id"
-     type="text"
-     class="form-control search-input"
-     placeholder=""
-     aria-label=""
-     aria-describedby="basic-addon1"
+   type="text"
+   class="form-control search-input"
+   placeholder=""
+   aria-label=""
+   aria-describedby="basic-addon1"
    />
  </div>
  <br>
@@ -98,10 +91,16 @@
 
     <div class="allusers">
       <div>
-        <button type="submit" [disabled]="!searchForm.valid" class="button-15" role="button">Search</button>
+        <button
+        routerLink="/search"
+        [queryParams]="{ searchBody: searchValue }"
+        class="btn btn-outline-secondary"
+        type="button"
+      >
+        Search
+      </button>
       </div>
       </div>
-      </form>
       <br>
       <div>
         <button class="button-15" role="button" (click)="onAddNewBtnClick()">Create Job Alert </button>

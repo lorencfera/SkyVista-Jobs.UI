@@ -12,6 +12,9 @@ import { PostPgComponent } from './view-Home/profile-page/theCreatedJobs/jobscr.
 import { SaveJobComponent } from './view-Home/save-job/save-job.component';
 import { PostPgComponents } from './view-Home/job-alerts/theCreatedJobs/jobscr.component';
 import { JobAlertsComponent } from './view-Home/job-alerts/job-alerts.component';
+import { ApplicateForJob } from './view-Home/formsuibmitApplication/applicatejob';
+import { SearchUserPgComponent } from './view-Home/formsuibmitApplication/user/user.s';
+import { SearchPostPgComponent } from './view-Home/formsuibmitApplication/posts/postsjobs.s';
 const routes: Routes = [
   {
     path:'',
@@ -37,6 +40,7 @@ const routes: Routes = [
     path: 'saveJobs/:userId',
     canActivate: [AuthServiceGuard],
     component: SaveJobComponent,
+    
   },
   {
     path: 'JobAlerts/:userId',
@@ -53,6 +57,16 @@ const routes: Routes = [
     children: [
       { path: 'post', component: PostPgComponent },
     ]
+  },
+  {
+    path: 'search',
+    canActivate: [AuthServiceGuard],
+    component: ApplicateForJob,
+    children: [
+      { path: '', redirectTo: 'posts', pathMatch: 'full' },
+      { path: 'posts', component: SearchPostPgComponent },
+      { path: 'users', component: SearchUserPgComponent },
+    ],
   },
   
 ];

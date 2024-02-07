@@ -20,13 +20,6 @@ export class JobListingsComponent implements OnInit{
   showRouterOutlet: boolean | undefined;
   searchValue: any
   users!: any[]
-  // nameofthejob: any
-  // loaction: any
-  // worktypes: any
-  // createdAt: any
-  // category: any
-  // id: any
-  // requrements: any;
   searchForm: FormGroup;
   constructor(
     private fb: FormBuilder,
@@ -65,34 +58,6 @@ export class JobListingsComponent implements OnInit{
       this.postProxyS.getJobsList().subscribe((response: any) => {
         this.post = response;
       });
-    }
-
-    navigateToPost() {
-      if (this.isValidPostId()) {
-        const userid = this.getPostIdFromFormValues(this.searchForm.value);
-    
-        if (userid) {
-          this.router.navigate(['/post', userid]);
-        } else {
-          this.jobSearchAttempted = true;
-        }
-      } else {
-        this.jobSearchAttempted = true;
-      }
-    }
-    
-    getPostIdFromFormValues(formValues: any): string | null {
-      const postId = `${formValues.nameofthejob}`;
-      const userid = `${formValues.id}`;
-      return postId;
-    }
-    
-    isValidPostId(): boolean {
-      const formValues = this.searchForm.value;
-      const trimmedNameOfTheJob = formValues.nameofthejob ? formValues.nameofthejob.trim() : '';
-      const isNameValid = trimmedNameOfTheJob.length > 0;
-      const isValid = isNameValid
-      return isValid;
     }
 
     saveJob(jobId: string): void {

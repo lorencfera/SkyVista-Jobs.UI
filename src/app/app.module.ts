@@ -28,9 +28,19 @@ import { MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { JobAlertsComponent } from './view-Home/job-alerts/job-alerts.component';
 import { PostPgComponents } from './view-Home/job-alerts/theCreatedJobs/jobscr.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { SearchUserPgComponent } from './view-Home/formsuibmitApplication/user/user.s'; 
+import { SearchPostPgComponent } from './view-Home/formsuibmitApplication/posts/postsjobs.s'; 
+import { ApplicateForJob } from '../app/view-Home/formsuibmitApplication/applicatejob';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
+
 @NgModule({
   declarations: [
     AppComponent,
+    SearchPostPgComponent,
+    ApplicateForJob,
+    SearchUserPgComponent,
     PostPgComponent,
     addEduacation,
     PostPgComponents,
@@ -50,11 +60,13 @@ import { PostPgComponents } from './view-Home/job-alerts/theCreatedJobs/jobscr.c
   imports: [
     BrowserModule,
     MatMenuModule,
+    MatPaginatorModule,
     FormsModule,
     MatTabsModule,
     MatSidenavModule,
     MatDialogModule,
     HttpClientModule,
+    MatSnackBarModule,
     ReactiveFormsModule,
     AppRoutingModule,
     StoreModule.forRoot({
