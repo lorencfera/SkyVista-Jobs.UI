@@ -1,0 +1,13 @@
+<article *ngFor="let post of posts; let postIndex = index" class="post">
+  
+  <div class="post-middle" routerLink="/post/{{ post._id }}">
+    <h1>{{ post.nameofthejob }} - {{post.worktypes}}</h1><br>
+    <h3>Location:  {{post.loaction}}</h3>
+    <button class="button-15" *ngIf="userData._id === regUser._id" (click)="onPostDeleteBtnClick(post._id)" mat-menu-item>
+      <span class="mdc-list-item__primary-text"> Delete It </span>
+    </button>
+    <button class="button-15" *ngIf="userData._id !== regUser._id" routerLink="/post/{{ post._id }}" mat-menu-item>
+      <span class="mdc-list-item__primary-text"> View It </span>
+    </button>
+  </div>
+</article>

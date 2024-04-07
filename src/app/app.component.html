@@ -1,0 +1,32 @@
+<!-- <div *ngIf="loader" class="spinner-box">
+    <div class="preloader"></div>
+  </div> -->
+  <header>
+    <div class="AllDivs">
+    <div class="stuctImages">
+      <h1>SkyVIstaWellness Center</h1>
+    </div>
+    <div class="structure">
+      <nav>
+        <ul>
+          <div><a routerLink="">Job Listing</a></div>
+          <div><a routerLink="/prolife/{{ userData._id }}">My Profile</a></div>
+          <div><a routerLink="/saveJobs/{{userData._id}}">My Saved Jobs</a></div>
+          <div><a routerLink="/JobAlerts/{{userData._id}}/post">My Posted Jobs</a></div>
+          <li class="one"><b>{{userData.firstname}} {{userData.lastname}}</b>&nbsp;&nbsp;<span *ngIf="afterLoginDisplay" class="verified-avatar-icon">✓</span></li>
+          <div style="margin-right: 10px;">
+            <button *ngIf="afterLoginDisplay" class="button-15" role="button" (click)="logOut()">logOut</button>
+          </div>
+        </ul>
+        
+      </nav>
+    </div>
+  </div>
+  </header>
+ 
+  <!-- <div class="container">
+    <router-outlet></router-outlet>
+  </div> -->
+
+
+  <router-outlet></router-outlet>

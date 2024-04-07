@@ -1,0 +1,65 @@
+<!-- <article *ngFor="let job of Jobs">
+  <div class="post-top">
+    <div>
+      <span class="pointer" [routerLink]="['/prolife', job._id]">
+        {{ job.username }}
+      </span>
+    </div>
+  </div>
+</article> -->
+<!-- 
+<article>
+  <div class="post-top">
+    <div>
+     <p>{{userData.savesJob._id}}</p>
+    </div>
+  </div>
+</article> -->
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <button
+      routerLinkActive="post"
+      [routerLink]="['/post', searchValue]"
+      class="btn btn-outline-secondary"
+      type="button"
+    >
+      Search
+    </button>
+  </div>
+  <input
+  (keyup.enter)="navigateToPost()"
+    [(ngModel)]="searchValue"
+    type="text"
+    class="form-control search-input"
+    placeholder=""
+    aria-label=""
+    aria-describedby="basic-addon1"
+  />
+</div>
+
+<div *ngIf="jobSearchAttempted">
+  <p>Job not found or an error occurred.</p>
+</div>
+
+<div class="txts">
+  <p>
+    
+Dear valued user, <br>
+
+To effortlessly locate your saved jobclick on it.<br> 
+This streamlined process ensures that you swiftly access the specific job you <br>
+desire, sparing you the effort of tirelessly searching through listings. <br>
+
+Best regards, <br>
+SkyVista Wellness Center
+  </p>
+</div>
+<div>
+  <ul *ngFor="let j of Jobs">
+    <span [routerLink]="['/post', j]">
+      <li #s class="button-15" role="button">
+        {{j}}
+    </li>
+  </span>
+</ul>
+</div>
